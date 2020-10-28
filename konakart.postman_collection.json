@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "e79d0d67-6b1f-41b7-948c-32d6dbb2b5e7",
+		"name": "konakart",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Konakart",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b4ff85b9-406d-44a2-a0e9-19b8eaf61cc6",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"\r",
+							"pm.test(\"Check Status of Request\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Check whether r property exists\", function () {\r",
+							"    pm.expect(jsonData).to.haveOwnProperty('r');\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \"f\":\"{{functionName}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://{{url}}",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"id": "86073e13-e370-4389-b855-9b99f692bbd0",
+			"key": "functionName",
+			"value": "getKonaKartVersion"
+		},
+		{
+			"id": "6b9fea17-354e-46de-bfd2-46a3360c615e",
+			"key": "url",
+			"value": "eltcart-staging.cambridgedev.org/konakart/konakartjson"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
